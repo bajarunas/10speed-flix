@@ -16,3 +16,11 @@ export const useGetMovie = (movieId: string) =>
     select: (data) => data.data,
     staleTime: Infinity
   });
+
+export const useGetPopularSeries = (page: number = 1) =>
+  useQuery({
+    queryKey: ["series", page],
+    queryFn: () => apiRoutes.getPopularSeries(page),
+    select: (data) => data.data,
+    staleTime: Infinity
+  });

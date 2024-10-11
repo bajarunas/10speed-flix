@@ -4,6 +4,7 @@ import {
   CardActionArea,
   CardContent,
   CardMedia,
+  Chip,
   Grid2,
   Tooltip,
   Typography
@@ -15,9 +16,10 @@ interface Props {
   title?: string;
   image?: string;
   movieId: string;
+  movie: boolean;
 }
 
-export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
+export const MovieCard: FC<Props> = ({ title, image, movieId, movie }) => {
   const navigate = useNavigate();
   const { search } = useLocation();
 
@@ -42,6 +44,12 @@ export const MovieCard: FC<Props> = ({ title, image, movieId }) => {
               </Typography>
             </Tooltip>
           </CardContent>
+          <div style={{ textAlign: "center" }}>
+            <Chip
+              label={movie ? "Movie" : "Series"}
+              style={{ marginBottom: 5, marginTop: -10 }}
+            />
+          </div>
         </CardActionArea>
       </Card>
     </Grid2>

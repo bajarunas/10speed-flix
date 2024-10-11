@@ -16,5 +16,9 @@ export const apiRoutes = {
    * More details about this endpoint can be found here:
    * @see https://developers.themoviedb.org/3/movies/get-movie-details
    */
-  getMovie: (movieId: string) => API.get<MovieResponse>(`/movie/${movieId}`)
+  getMovie: (movieId: string) => API.get<MovieResponse>(`/movie/${movieId}`),
+  getPopularSeries: (page: number = 1) =>
+    API.get("/tv/popular", {
+      params: { page }
+    })
 };
